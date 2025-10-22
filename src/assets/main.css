@@ -83,6 +83,15 @@ table {
     width: 33%;
   }
 
+  th:first-of-type,
+  td:first-of-type {
+    width: 50px;
+  }
+
+  th:nth-of-type(2) {
+    padding-right: 3em;
+  }
+
   /* remove outer borders from the table */
   tr:first-child th {
     border-top: none;
@@ -93,12 +102,38 @@ table {
   }
 
   tr td:first-child,
-  tr th:first-child {
+  tr th:first-child,
+  tr td:nth-child(2),
+  tr th:nth-child(2) {
     border-left: none;
+    border-right: none;
   }
 
   tr td:last-child,
   tr th:last-child {
     border-right: none;
   }
+}
+
+.delete-btn {
+  background: var(--accent-bg);
+  border: none;
+  border-radius: .5em;
+  box-shadow: none;
+  color: var(--text);
+  height: 1.75em;
+  width: 1.75em;
+}
+
+.delete-btn:hover {
+  background: var(--darker-bg);
+  color: var(--accent);
+}
+
+.delete-btn::after {
+  content: '+';
+  display: block;
+  line-height: initial;
+  text-indent: 0;
+  transform: rotate(45deg);
 }

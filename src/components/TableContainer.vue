@@ -25,7 +25,7 @@
       <TableHead :mediaType="mediaType" />
     </thead>
     <tbody>
-      <TableEntry :media="entries" />
+      <TableEntry :media="entries" @deleteEntry="handleDeleteEntry" />
     </tbody>
   </table>
 </template>
@@ -51,4 +51,10 @@ const props = defineProps({
 const entries = computed(() => {
   return props.media.filter((entry) => entry.mediaType === props.mediaType);
 });
+
+const emit = defineEmits(['deleteEntry']);
+
+const handleDeleteEntry = (title) => {
+  emit('deleteEntry', title);
+};
 </script>

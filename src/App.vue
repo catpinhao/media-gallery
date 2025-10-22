@@ -6,14 +6,14 @@
   </div>
 
   <div class="table-container">
-    <Table :mediaType="mediaType" :media="media" />
+    <TableContainer :mediaType="mediaType" :media="media" @deleteEntry="handleDeleteEntry" />
   </div>
 </template>
 
 <script setup>
 import Header from './components/Header.vue';
 import Navigation from './components/Navigation.vue';
-import Table from './components/Table.vue';
+import TableContainer from './components/TableContainer.vue';
 
 import { ref } from 'vue';
 const mediaType = ref('Books');
@@ -22,7 +22,12 @@ const handleNavClick = (dataType) => {
   mediaType.value = dataType;
 };
 
-const media = [
+const handleDeleteEntry = (title) => {
+  const idxToRemove = media.value.findIndex((entry => entry.title === title));
+  media.value.splice(idxToRemove, 1);
+};
+
+const media = ref([
   {
     mediaType: 'Books',
     title: 'Dune',
@@ -71,5 +76,5 @@ const media = [
     year: '1999',
     platform: 'Netflix'
   }
-]
+]);
 </script>

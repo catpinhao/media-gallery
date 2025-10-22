@@ -1,5 +1,6 @@
 <template>
   <tr v-for="entry in media" :key="entry.id">
+    <td><button class="delete-btn" @click="deleteEntry" v-bind:name="entry.title"></button></td>
     <td>{{ entry.title }}</td>
 
     <td v-if="entry.author">{{ entry.author }}</td>
@@ -22,4 +23,10 @@ const props = defineProps({
     required: true,
   }
 });
+
+const emit = defineEmits(['deleteEntry']);
+
+const deleteEntry = (event) => {
+  emit('deleteEntry', event.currentTarget.name);
+};
 </script>
