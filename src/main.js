@@ -8,9 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 /* import all the icons in Free Solid, Free Regular, and Brands styles */
-import { faBook, faGamepad, faFilm, faMusic, faPodcast, faTv } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faGamepad, faFilm, faPodcast, faTv } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBook, faGamepad, faFilm, faMusic, faPodcast, faTv)
+library.add(faBook, faGamepad, faFilm, faPodcast, faTv)
 
 createApp(App)
   .component("font-awesome-icon", FontAwesomeIcon)

@@ -11,9 +11,6 @@
     <span class="icon" v-if="mediaType == 'Movies'">
       <font-awesome-icon icon="fa-solid fa-film" />
     </span>
-    <span class="icon" v-if="mediaType == 'Music'">
-      <font-awesome-icon icon="fa-solid fa-music" />
-    </span>
     <span class="icon" v-if="mediaType == 'Podcasts'">
       <font-awesome-icon icon="fa-solid fa-podcast" />
     </span>
@@ -26,7 +23,7 @@
       <TableHead :mediaType="mediaType" />
     </thead>
     <tbody>
-      <TableEntry />
+      <TableEntry :mediaType="mediaType" :media="media" />
     </tbody>
   </table>
 </template>
@@ -42,5 +39,9 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  media: {
+    type: Array,
+    required: true,
+  }
 });
 </script>

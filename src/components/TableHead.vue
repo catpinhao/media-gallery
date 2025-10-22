@@ -2,7 +2,7 @@
   <tr v-if="mediaType == 'Books'">
     <th>Title</th>
     <th>Author</th>
-    <th>Format</th>
+    <th>Platform</th>
   </tr>
   <tr v-if="mediaType == 'Games'">
     <th>Title</th>
@@ -12,22 +12,17 @@
   <tr v-if="mediaType == 'Movies'">
     <th>Title</th>
     <th>Year</th>
-    <th>Format</th>
-  </tr>
-  <tr v-if="mediaType == 'Television'">
-    <th>Title</th>
-    <th>Year</th>
-    <th>Format</th>
+    <th>Platform</th>
   </tr>
   <tr v-if="mediaType == 'Podcasts'">
     <th>Title</th>
     <th>Author</th>
     <th>Platform</th>
   </tr>
-  <tr v-if="mediaType == 'Music'">
+  <tr v-if="mediaType == 'Television'">
     <th>Title</th>
-    <th>Author</th>
-    <th>Format</th>
+    <th>Year</th>
+    <th>Platform</th>
   </tr>
 </template>
 
