@@ -18,21 +18,24 @@
       <font-awesome-icon icon="fa-solid fa-tv" />
     </span>
   </h2>
-  <table>
+
+  <TableEmptyState v-if="!entries.length" />
+  <table v-else>
     <thead>
       <TableHead :mediaType="mediaType" />
     </thead>
     <tbody>
-      <TableEntry :mediaType="mediaType" :media="media" />
+      <TableEntry :media="entries" />
     </tbody>
   </table>
 </template>
 
 <script setup>
+import TableEmptyState from './TableEmptyState.vue';
 import TableEntry from './TableEntry.vue';
 import TableHead from './TableHead.vue';
 
-import { defineProps } from 'vue';
+import { defineProps, computed } from 'vue';
 
 const props = defineProps({
   mediaType: {
@@ -43,5 +46,9 @@ const props = defineProps({
     type: Array,
     required: true,
   }
+});
+
+const entries = computed(() => {
+  return props.media.filter((entry) => entry.mediaType === props.mediaType);
 });
 </script>

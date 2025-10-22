@@ -1,5 +1,5 @@
 <template>
-  <tr v-for="entry in entries" :key="entry.id">
+  <tr v-for="entry in media" :key="entry.id">
     <td>{{ entry.title }}</td>
 
     <td v-if="entry.author">{{ entry.author }}</td>
@@ -14,20 +14,12 @@
 
 
 <script setup>
-import { defineProps, computed } from 'vue';
+import { defineProps } from 'vue';
 
 const props = defineProps({
-  mediaType: {
-    type: String,
-    required: true,
-  },
   media: {
     type: Array,
     required: true,
   }
-});
-
-const entries = computed(() => {
-  return props.media.filter((entry) => entry.mediaType === props.mediaType);
 });
 </script>

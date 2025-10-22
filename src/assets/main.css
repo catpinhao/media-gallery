@@ -74,11 +74,13 @@ table {
     border: 1px solid var(--lighter-accent);
     color: var(--lighter-accent);
     padding: .5em;
+    width: 33%;
   }
 
   td {
     border: 1px solid var(--lighter-accent);
     padding: .5em;
+    width: 33%;
   }
 
   /* remove outer borders from the table */
