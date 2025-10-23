@@ -15,8 +15,6 @@
 
 
 <script setup>
-import { defineProps } from 'vue';
-
 const props = defineProps({
   media: {
     type: Array,

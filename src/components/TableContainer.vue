@@ -1,4 +1,6 @@
 <template>
+  <AddEntry @addEntry="handleAddEntry"/>
+
   <h2>
     {{ mediaType }}
 
@@ -9,7 +11,7 @@
       <font-awesome-icon icon="fa-solid fa-gamepad" />
     </span>
     <span class="icon" v-if="mediaType == 'Movies'">
-      <font-awesome-icon icon="fa-solid fa-film" />
+      <font-awesome-icon icon="fa-solid fa-video" />
     </span>
     <span class="icon" v-if="mediaType == 'Podcasts'">
       <font-awesome-icon icon="fa-solid fa-podcast" />
@@ -31,11 +33,11 @@
 </template>
 
 <script setup>
+import AddEntry from './AddEntry.vue';
 import TableEmptyState from './TableEmptyState.vue';
 import TableEntry from './TableEntry.vue';
 import TableHead from './TableHead.vue';
-
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 
 const props = defineProps({
   mediaType: {
@@ -52,7 +54,11 @@ const entries = computed(() => {
   return props.media.filter((entry) => entry.mediaType === props.mediaType);
 });
 
-const emit = defineEmits(['deleteEntry']);
+const emit = defineEmits(['addEntry', 'deleteEntry']);
+
+const handleAddEntry = (mediaData) => {
+  emit('addEntry', mediaData);
+};
 
 const handleDeleteEntry = (title) => {
   emit('deleteEntry', title);

@@ -115,7 +115,10 @@ table {
   }
 }
 
-.delete-btn {
+.add-btn,
+.delete-btn,
+.submit-btn,
+.close-btn {
   background: var(--accent-bg);
   border: none;
   border-radius: .5em;
@@ -125,15 +128,97 @@ table {
   width: 1.75em;
 }
 
-.delete-btn:hover {
+.add-btn:hover,
+.delete-btn:hover,
+.submit-btn:hover,
+.close-btn:hover {
   background: var(--darker-bg);
   color: var(--accent);
+  cursor: pointer;
 }
 
-.delete-btn::after {
+.add-btn,
+.close-btn {
+  float: right;
+}
+
+.submit-btn {
+  padding: .5em 1em;
+  height: fit-content;
+  width: 100%;
+}
+
+.delete-btn::after,
+.close-btn::after {
   content: '+';
   display: block;
-  line-height: initial;
-  text-indent: 0;
   transform: rotate(45deg);
+}
+
+.modal-backdrop {
+  background-color: var(--darker-bg);
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.add-modal {
+  background: var(--lighter-bg);
+  border: 1px solid var(--accent-bg);
+  border-radius: .5em;
+  position: fixed;
+  top: 20vh;
+  left: 25vw;
+  height: fit-content;
+  width: 50%;
+  padding: 1em;
+  z-index: 1;
+}
+
+form {
+  margin: 0 1em;
+}
+
+.form-control {
+  margin-bottom: 1em;
+}
+
+.radio-group {
+  display: inline-block;
+}
+
+label,
+p {
+  color: var(--lighter-accent);
+  display: block;
+  margin-bottom: 0;
+}
+
+.label-radio {
+  color: var(--text);
+  display: inline-block;
+  margin-right: 1em;
+}
+
+input[type="text"],
+input[type="number"] {
+  background: var(--accent-bg);
+  border: 1px solid var(--lighter-bg);
+  border-radius: .5em;
+  color: var(--text);
+  padding: .5em;
+  width: 300px;
+}
+
+input::placeholder {
+  color: var(--text);
+}
+
+.error-message {
+  color: var(--accent);
+  display: block;
+  font-size: 11px;
 }

@@ -6,7 +6,7 @@
   </div>
 
   <div class="table-container">
-    <TableContainer :mediaType="mediaType" :media="media" @deleteEntry="handleDeleteEntry" />
+    <TableContainer :mediaType="mediaType" :media="media" @addEntry="handleAddEntry" @deleteEntry="handleDeleteEntry" />
   </div>
 </template>
 
@@ -14,12 +14,16 @@
 import Header from './components/Header.vue';
 import Navigation from './components/Navigation.vue';
 import TableContainer from './components/TableContainer.vue';
-
 import { ref } from 'vue';
+
 const mediaType = ref('Books');
 
 const handleNavClick = (dataType) => {
   mediaType.value = dataType;
+};
+
+const handleAddEntry = (mediaData) => {
+  media.value.push(mediaData);
 };
 
 const handleDeleteEntry = (title) => {
