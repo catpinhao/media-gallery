@@ -143,8 +143,9 @@ table {
 }
 
 .submit-btn {
-  padding: .5em 1em;
   height: fit-content;
+  margin-top: 1em;
+  padding: .5em 1em;
   width: 100%;
 }
 
@@ -205,16 +206,20 @@ p {
 
 input[type="text"],
 input[type="number"] {
-  background: var(--accent-bg);
+  background: var(--darker-bg);
   border: 1px solid var(--lighter-bg);
   border-radius: .5em;
   color: var(--text);
   padding: .5em;
-  width: 300px;
+  width: -webkit-fill-available;
 }
 
 input::placeholder {
   color: var(--text);
+}
+
+input:focus-visible {
+  outline: none;
 }
 
 .error-message {
