@@ -53,8 +53,8 @@
 
         <div class="form-control" v-if="media == 'Movies' || media == 'Television'">
           <label for="year">Year</label>
-          <input type="number" id="year" placeholder="Enter the release year" v-model="year" />
-          <span class="error-message error-year" v-if="error && !year">Please choose a year.</span>
+          <input type="number" id="year" placeholder="Enter the release year" min="1888" max="2025" v-model="year" />
+          <span class="error-message error-year" v-if="error && !year">Please choose a year between 1888 and now.</span>
         </div>
 
         <div class="form-control" v-if="media">
@@ -140,5 +140,4 @@ const onSubmit = () => {
   emit('addEntry', prunedMediaData);
   onClose();
 };
-
 </script>
